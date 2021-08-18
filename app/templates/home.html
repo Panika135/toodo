@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+{% for item in data %}
+  <form method="POST" action="/checked/">
+    <input type="checkbox" {% if item.checked == True %} checked {% endif %} name={{ item.item }}>
+      {{ item }}
+    <br>
+    <hr>
+
+{% endfor %}
+    <button name="her" type="submit">сохранить</button>
+      {% csrf_token %}
+  </form>
+</body>
+</html>
